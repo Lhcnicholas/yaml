@@ -1,0 +1,60 @@
+version: "3"
+services:
+  mysql:
+    container_name: my_mysql
+    image: mysql:5.6
+    restart: always
+    ports: 
+      - 3306:3306
+    volumes:
+      - C:/docker/mysql5.6/mysql:/var/lib/mysql
+      - D:/WorkSpace/yaml/compose/mysql/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+
+  redis:
+    container_name: my_redis
+    build:
+      context: ./compose/redis
+    ports:
+      - 6379:6379
+  
+  zookeeper:
+    container_name: my_zookeeper
+    image: zookeeper
+    restart: always
+    hostname: zoo1
+    ports:
+      - 2181:2181    
+      - 8081:8080
+  
+  rabbitmq:
+    container_name: my_rmq
+    image: rabbitmq:3-management
+    restart: always
+    hostname: my_rmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+  
+  mongo:
+    container_name: my_mongo
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+
+  activemq:
+    container_name: my_activemq
+    image: webcenter/activemq
+    restart: always
+    ports:
+      - 8161:8161
+      - 61616:61616
+      - 61613:61613

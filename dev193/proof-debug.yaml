@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: proof-debug 
+spec:
+  type: NodePort
+  ports: 
+  - port: 8000
+    nodePort: 20013
+  selector:
+    app: proof
+  

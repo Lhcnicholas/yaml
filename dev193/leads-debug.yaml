@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: leads-debug 
+spec:
+  type: NodePort
+  ports: 
+  - port: 8000
+    nodePort: 20008
+  selector:
+    app: leads-dev193
+  

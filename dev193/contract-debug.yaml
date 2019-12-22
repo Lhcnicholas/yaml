@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: contract-debug 
+spec:
+  type: NodePort
+  ports: 
+  - port: 8000
+    nodePort: 20012
+  selector:
+    app: contract
+  

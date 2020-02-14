@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: credit-debug 
+spec:
+  type: NodePort
+  ports: 
+  - port: 8000
+    nodePort: 20015
+  selector:
+    app: credit
+  

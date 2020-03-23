@@ -7,7 +7,7 @@ services:
     ports: 
       - 3306:3306
     volumes:
-      - C:/docker/mysql5.6/mysql:/var/lib/mysql
+      - D:/docker/mysql5.6/mysql:/var/lib/mysql
       - D:/WorkSpace/yaml/compose/mysql/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
     environment:
       MYSQL_ROOT_PASSWORD: 123456

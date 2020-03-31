@@ -80,16 +80,15 @@ services:
   logstash:
     image: my_logstash:0.1
     container_name: my_logstash
-    environment:
-      XPACK_MONITORING_ELASTICSEARCH_HOSTS: http://es01:9200
     volumes:
-      - D:/WorkSpace/yaml/compose/logstash/config:/usr/share/logstash/config/
-      - D:/WorkSpace/yaml/compose/logstash/pipeline:/usr/share/logstash/pipeline/
+      - /Users/lhc/WorkSpace/kub/compose/logstash/config/:/usr/share/logstash/config/
+      - /Users/lhc/WorkSpace/kub/compose/logstash/pipeline/:/usr/share/logstash/pipeline/
     ports:
       - 5044:5044
       - 9600:9600
     networks:
       - elastic
+      - default 
 
 volumes:
   data01:
@@ -102,3 +101,6 @@ volumes:
 networks:
   elastic:
     driver: bridge
+  default:
+    external:
+      name: kub_default

@@ -55,3 +55,13 @@ services:
       - 8161:8161
       - 61616:61616
       - 61613:61613
+  seata-server:
+    container_name: seata-server
+    restart: always 
+    build:
+      context: ./compose/seata-server
+    ports:
+      - "8091:8091"
+    environment:
+      - SEATA_PORT=8091
+      - STORE_MODE=file

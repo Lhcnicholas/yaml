@@ -2,15 +2,12 @@
 apiVersion: v1
 kind: Service
 metadata: 
-  name: process 
+  name: process-debug
 spec:
   type: NodePort
   ports: 
-  - name: process-web
-    port: 8080
-    nodePort: 8081
   - name: process-debug
     port: 8000
-    nodePort: 20011
+    nodePort: 30001
   selector:
-    app: process
+    app: process-dev

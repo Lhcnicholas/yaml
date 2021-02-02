@@ -55,6 +55,7 @@ services:
       - 8161:8161
       - 61616:61616
       - 61613:61613
+
   seata-server:
     container_name: seata-server
     restart: always 
@@ -66,3 +67,11 @@ services:
       - SEATA_PORT=8091
       - STORE_MODE=file
       - SEATA_IP=127.0.0.1
+  
+  flowable-ui:
+    container_name: flowable-ui
+    restart: always
+    image: flowable/flowable-ui
+    ports:
+      - 8180:8080
+
